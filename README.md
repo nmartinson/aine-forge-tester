@@ -22,6 +22,7 @@ This repository is set up as a foundation for testing agentic coding tools. It i
 
 - Node.js 18+ 
 - npm 9+
+- 
 
 ### Installation
 
