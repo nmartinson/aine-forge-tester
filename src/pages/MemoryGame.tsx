@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 import './MemoryGame.css'
 
 interface Card {
@@ -9,7 +9,7 @@ interface Card {
 }
 
 function MemoryGame() {
-  const emojis = ['🍎', '🍌', '🍒', '🍊', '🍇', '🍓', '🥝', '🍑']
+  const emojis = useMemo(() => ['🍎', '🍌', '🍒', '🍊', '🍇', '🍓', '🥝', '🍑'], [])
   const [cards, setCards] = useState<Card[]>([])
   const [flipped, setFlipped] = useState<number[]>([])
   const [matched, setMatched] = useState<number[]>([])
@@ -17,23 +17,39 @@ function MemoryGame() {
   const [gameWon, setGameWon] = useState(false)
 
   // Initialize game
+  const initializeGame = useCallback(() => {
+    const shuffled = [...emojis, ...emojis]
+      .sort(() => Math.random() - 0.5)
+      .map((emoji, index) => (({
+        id: index,
+        emoji,
+        isFlipped: false,
+        isMatched: false,
+      })))
+    setCards(shuffled)
+    setFlipped([])
+    setMatched([])
+    setMoves(0)
+    setGameWon(false)
+  }, [emojis])
+
   useEffect(() => {
     initializeGame()
-  }, [])
+  }, [initializeGame])
 
   // Check for matches
   useEffect(() => {
     if (flipped.length === 2) {
       const [first, second] = flipped
       if (cards[first].emoji === cards[second].emoji) {
-        setMatched([...matched, first, second])
+        setMatched((prev) => [...prev, first, second])
         setFlipped([])
       } else {
         setTimeout(() => setFlipped([]), 600)
       }
-      setMoves(moves + 1)
+      setMoves((m) => m + 1)
     }
-  }, [flipped])
+  }, [flipped, cards])
 
   // Check for win
   useEffect(() => {
@@ -41,22 +57,6 @@ function MemoryGame() {
       setGameWon(true)
     }
   }, [matched, cards.length])
-
-  const initializeGame = () => {
-    const shuffled = [...emojis, ...emojis]
-      .sort(() => Math.random() - 0.5)
-      .map((emoji, index) => ({
-        id: index,
-        emoji,
-        isFlipped: false,
-        isMatched: false,
-      }))
-    setCards(shuffled)
-    setFlipped([])
-    setMatched([])
-    setMoves(0)
-    setGameWon(false)
-  }
 
   const handleCardClick = (index: number) => {
     if (
