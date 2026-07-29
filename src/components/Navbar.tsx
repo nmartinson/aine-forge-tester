@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import { useTheme } from '../utils/ThemeContext'
+import { useTheme } from '../utils/useTheme'
 import './Navbar.css'
 
 function Navbar() {
