@@ -1,7 +1,10 @@
 import { NavLink } from 'react-router-dom'
+import { useTheme } from '../utils/ThemeContext'
 import './Navbar.css'
 
 function Navbar() {
+  const { theme, toggleTheme } = useTheme()
+
   return (
     <nav className="navbar">
       <div className="navbar-content">
@@ -22,6 +25,14 @@ function Navbar() {
           >
             📚 Getting Started
           </NavLink>
+          <button 
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+            title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+          >
+            {theme === 'light' ? '🌙' : '☀️'}
+          </button>
         </div>
       </div>
     </nav>

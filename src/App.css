@@ -11,6 +11,7 @@
   color: var(--text-muted);
   border-top: 1px solid var(--border-color);
   background: linear-gradient(135deg, var(--surface-color) 0%, var(--background-color) 100%);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .footer p {

@@ -22,6 +22,30 @@
   --border-color: rgba(139, 92, 246, 0.3);  /* Purple tint */
 }
 
+/* Light mode theme */
+[data-theme="light"] {
+  --primary-color: #4f46e5;      /* Indigo */
+  --primary-hover: #4338ca;
+  --secondary-color: #db2777;    /* Pink */
+  --accent-color: #7c3aed;       /* Purple */
+  --success-color: #059669;      /* Emerald */
+  --warning-color: #d97706;      /* Amber */
+  --error-color: #dc2626;        /* Red */
+  
+  /* Light background colors */
+  --background-color: #f8fafc;   /* Light slate */
+  --surface-color: #f1f5f9;      /* Lighter slate */
+  --card-bg: #ffffff;            /* White */
+  --navbar-bg: #ffffff;          /* White navbar */
+  
+  /* Light text colors */
+  --text-color: #1e293b;         /* Dark slate */
+  --text-muted: #64748b;         /* Muted slate */
+  
+  /* Light border */
+  --border-color: rgba(79, 70, 229, 0.2);  /* Indigo tint */
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -37,6 +61,11 @@ body {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+[data-theme="light"] body {
+  background: linear-gradient(135deg, var(--background-color) 0%, #e2e8f0 100%);
 }
 
 #root {
