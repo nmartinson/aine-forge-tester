@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import GettingStarted from './pages/GettingStarted'
 import TodoList from './pages/TodoList'
 import TicTacToe from './pages/TicTacToe'
+import MemoryGame from './pages/MemoryGame'
 import './App.css'
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route path="/getting-started" element={<GettingStarted />} />
             <Route path="/todo" element={<TodoList />} />
             <Route path="/tictactoe" element={<TicTacToe />} />
+            <Route path="/memory" element={<MemoryGame />} />
           </Routes>
 
           <footer className="footer">
