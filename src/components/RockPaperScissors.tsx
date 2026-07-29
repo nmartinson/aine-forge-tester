@@ -71,7 +71,7 @@ function RockPaperScissors() {
               onClick={() => handlePlay(choice)}
               aria-label={`Play ${choice}`}
             >
-              <span className="choice-emoji">{choiceEmojis[choice]}</span>
+              <span className="choice-emoji">{choiceEmojis[choice as string]}</span>
               <span className="choice-label">{choice}</span>
             </button>
           ))}
