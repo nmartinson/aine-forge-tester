@@ -20,6 +20,12 @@ function Navbar() {
             🏠 Home
           </NavLink>
           <NavLink 
+            to="/todo" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            📝 Todo
+          </NavLink>
+          <NavLink 
             to="/getting-started" 
             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           >
