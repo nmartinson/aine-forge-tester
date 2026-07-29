@@ -9,6 +9,7 @@ import TodoList from './pages/TodoList'
 import TicTacToe from './pages/TicTacToe'
 import SnakeGame from './pages/SnakeGame'
 import WordPuzzle from './pages/WordPuzzle'
+import Checkers from './pages/Chess'
 import './App.css'
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route path="/tictactoe" element={<TicTacToe />} />
             <Route path="/snake" element={<SnakeGame />} />
             <Route path="/word-puzzle" element={<WordPuzzle />} />
+            <Route path="/checkers" element={<Checkers />} />
           </Routes>
 
           <footer className="footer">
