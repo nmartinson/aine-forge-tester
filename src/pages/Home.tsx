@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Header from '../components/Header'
 import FeatureCard from '../components/FeatureCard'
 import Counter from '../components/Counter'
+import RockPaperScissors from '../components/RockPaperScissors'
 import './Home.css'
 
 function Home() {
@@ -55,12 +56,23 @@ function Home() {
         </section>
 
         <section className="demo-section">
-          <h2>🎮 Interactive Demo</h2>
+          <h2>🎮 Interactive Demos</h2>
           <p className="demo-description">
-            Try out this simple counter component. Use this as a starting point
-            to add more interactive features!
+            Try out these interactive components. Use these as a starting point
+            to add more features!
           </p>
-          <Counter initialValue={0} />
+          
+          <div className="demos-container">
+            <div className="demo-item">
+              <h3>Counter</h3>
+              <Counter initialValue={0} />
+            </div>
+            
+            <div className="demo-item">
+              <h3>Rock, Paper, Scissors</h3>
+              <RockPaperScissors />
+            </div>
+          </div>
         </section>
       </main>
     </>
