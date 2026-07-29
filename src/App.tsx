@@ -8,6 +8,8 @@ import GettingStarted from './pages/GettingStarted'
 import TodoList from './pages/TodoList'
 import TicTacToe from './pages/TicTacToe'
 import MemoryGame from './pages/MemoryGame'
+import SnakeGame from './pages/SnakeGame'
+import WordPuzzle from './pages/WordPuzzle'
 import './App.css'
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
             <Route path="/todo" element={<TodoList />} />
             <Route path="/tictactoe" element={<TicTacToe />} />
             <Route path="/memory" element={<MemoryGame />} />
+            <Route path="/snake" element={<SnakeGame />} />
+            <Route path="/word-puzzle" element={<WordPuzzle />} />
           </Routes>
 
           <footer className="footer">

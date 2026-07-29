@@ -32,6 +32,18 @@ function Navbar() {
             🧠 Memory
           </NavLink>
           <NavLink 
+            to="/snake" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            🐍 Snake
+          </NavLink>
+          <NavLink 
+            to="/word-puzzle" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            📚 Word Puzzle
+          </NavLink>
+          <NavLink 
             to="/todo" 
             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           >

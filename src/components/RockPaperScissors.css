@@ -1,0 +1,250 @@
+.rps-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.rps-game {
+  background: var(--card-bg, #f5f5f5);
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.rps-choices {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.choice-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.choice-button:hover {
+  border-color: #4a90e2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
+}
+
+.choice-button.active {
+  border-color: #4a90e2;
+  background: #e8f0ff;
+  color: #4a90e2;
+}
+
+.choice-emoji {
+  font-size: 2rem;
+}
+
+.choice-label {
+  font-size: 0.8rem;
+}
+
+.rps-result {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: rgba(74, 144, 226, 0.05);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.matchup {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.player-side,
+.computer-side {
+  flex: 1;
+}
+
+.matchup .label {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0 0 0.5rem 0;
+  font-weight: 500;
+}
+
+.matchup .emoji {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.vs {
+  font-weight: bold;
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.result-message {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.result-message.win {
+  background: #d4edda;
+  color: #155724;
+}
+
+.result-message.lose {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.result-message.draw {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.play-again-button {
+  padding: 0.75rem 1.5rem;
+  background: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.play-again-button:hover {
+  background: #357abd;
+}
+
+.rps-score {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  margin: 2rem 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+}
+
+.score-item {
+  text-align: center;
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.score-item.wins {
+  background: rgba(76, 175, 80, 0.1);
+}
+
+.score-item.draws {
+  background: rgba(255, 193, 7, 0.1);
+}
+
+.score-item.losses {
+  background: rgba(244, 67, 54, 0.1);
+}
+
+.score-label {
+  display: block;
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.score-value {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.reset-button {
+  width: 100%;
+  padding: 0.75rem;
+  background: #f0f0f0;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.reset-button:hover {
+  background: #e0e0e0;
+  border-color: #999;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .rps-game {
+    --card-bg: #2a2a2a;
+    background: var(--card-bg);
+    color: #e0e0e0;
+  }
+
+  .choice-button {
+    background: #333;
+    border-color: #555;
+    color: #e0e0e0;
+  }
+
+  .choice-button:hover {
+    border-color: #4a90e2;
+    background: #1a3a5c;
+  }
+
+  .choice-button.active {
+    background: #1a3a5c;
+  }
+
+  .matchup .label {
+    color: #aaa;
+  }
+
+  .vs {
+    color: #666;
+  }
+
+  .score-label {
+    color: #aaa;
+  }
+
+  .score-value {
+    color: #e0e0e0;
+  }
+
+  .reset-button {
+    background: #333;
+    color: #e0e0e0;
+    border-color: #555;
+  }
+
+  .reset-button:hover {
+    background: #444;
+    border-color: #777;
+  }
+}
