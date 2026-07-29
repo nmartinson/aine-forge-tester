@@ -38,6 +38,12 @@ function Navbar() {
             📚 Word Puzzle
           </NavLink>
           <NavLink 
+            to="/word-scramble" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            🔀 Word Scramble
+          </NavLink>
+          <NavLink 
             to="/todo" 
             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           >
