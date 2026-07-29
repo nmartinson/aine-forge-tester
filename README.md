@@ -16,19 +16,176 @@ This repository is set up as a foundation for testing agentic coding tools. It i
 - **GitHub Actions** - CI pipeline with automated testing and deployment
 - **GitHub Pages** - Automatic deployment on push to main
 
+## 🚀 Onboarding Guide
+
+### Quick Start (5 minutes)
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/nmartinson/aine-forge-tester.git
+   cd aine-forge-tester
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+   The app will be available at `http://localhost:5173`
+
+### Development Workflow
+
+#### Making Changes
+
+1. **Create a feature branch**
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+2. **Make your changes** in the `src/` directory
+
+3. **Test your changes locally**
+   ```bash
+   npm run dev
+   ```
+   Open your browser and verify the changes
+
+4. **Run tests**
+   ```bash
+   npm run test
+   ```
+
+5. **Check linting**
+   ```bash
+   npm run lint
+   ```
+
+6. **Commit your changes**
+   ```bash
+   git add .
+   git commit -m "Description of your changes"
+   ```
+
+7. **Push to GitHub**
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+8. **Open a Pull Request** on GitHub for review
+
+#### Common Development Tasks
+
+| Task | Command |
+|------|---------|
+| Start dev server | `npm run dev` |
+| Run tests once | `npm run test` |
+| Run tests in watch mode | `npm run test:watch` |
+| Check code style | `npm run lint` |
+| Fix linting issues | `npm run lint -- --fix` |
+| Build for production | `npm run build` |
+| Preview production build | `npm run preview` |
+| Generate coverage report | `npm run test:coverage` |
+
+### Project Structure Overview
+
+```
+src/
+├── components/          # Reusable React components
+│   ├── Counter.tsx      # Example: Interactive counter
+│   ├── FeatureCard.tsx  # Example: Feature display card
+│   ├── Header.tsx       # Example: Page header
+│   └── *.test.tsx       # Component tests
+├── test/
+│   └── setup.ts         # Test configuration
+├── App.tsx              # Main application component
+├── main.tsx             # Application entry point
+└── index.css            # Global styles
+```
+
+### Creating a New Component
+
+1. **Create the component file** in `src/components/`
+   ```tsx
+   // src/components/MyComponent.tsx
+   export function MyComponent() {
+     return <div>My Component</div>;
+   }
+   ```
+
+2. **Create a test file** for your component
+   ```tsx
+   // src/components/MyComponent.test.tsx
+   import { render, screen } from '@testing-library/react';
+   import { MyComponent } from './MyComponent';
+
+   describe('MyComponent', () => {
+     it('renders correctly', () => {
+       render(<MyComponent />);
+       expect(screen.getByText('My Component')).toBeInTheDocument();
+     });
+   });
+   ```
+
+3. **Import and use** in `App.tsx` or other components
+
+### Before Submitting a Pull Request
+
+Ensure all checks pass:
+
+```bash
+# Run tests
+npm run test
+
+# Check linting
+npm run lint
+
+# Build to catch any TypeScript errors
+npm run build
+```
+
+All of these must pass before your PR can be merged.
+
+### Troubleshooting
+
+**Port 5173 already in use?**
+```bash
+npm run dev -- --port 3000
+```
+
+**Dependencies not installing?**
+```bash
+rm -rf node_modules package-lock.json
+npm install
+```
+
+**Tests failing?**
+```bash
+npm run test:watch
+```
+This will run tests in watch mode, making it easier to debug.
+
+**Linting errors?**
+```bash
+npm run lint -- --fix
+```
+This will automatically fix many common issues.
+
 ## 🛠️ Getting Started
 
 ### Prerequisites
 
 - Node.js 18+ 
 - npm 9+
-- 
 
 ### Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/royceacho-wwt/aine-forge-tester.git
+git clone https://github.com/nmartinson/aine-forge-tester.git
 cd aine-forge-tester
 
 # Install dependencies
