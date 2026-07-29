@@ -11,10 +11,110 @@ This repository is set up as a foundation for testing agentic coding tools. It i
 
 - **TypeScript + React 18** - Modern React with full type safety
 - **Vite** - Fast development server and build tool
+- **React Router v7** - Client-side routing for multi-page navigation
 - **Vitest** - Unit testing framework with React Testing Library
 - **ESLint** - Code linting and style enforcement
 - **GitHub Actions** - CI pipeline with automated testing and deployment
 - **GitHub Pages** - Automatic deployment on push to main
+
+## 🏗️ Architecture
+
+### High-Level Overview
+
+The application follows a **component-based architecture** with clear separation of concerns:
+
+```
+┌─────────────────────────────────────────┐
+│         React Application               │
+│  (TypeScript + React 18 + React Router) │
+└──────────────┬──────────────────────────┘
+               │
+       ┌───────┴────────┐
+       │                │
+   ┌───▼────┐      ┌───▼────┐
+   │ Pages  │      │ Layout  │
+   └────────┘      └────────┘
+       │                │
+   ┌───▼────────────────▼────┐
+   │   Reusable Components   │
+   │  (Counter, FeatureCard) │
+   └────────────────────────┘
+```
+
+### Directory Structure & Responsibilities
+
+```
+src/
+├── main.tsx              # Application entry point
+│                         # Renders React app into DOM
+│
+├── App.tsx               # Root component
+│                         # Sets up React Router with routes
+│                         # Renders Navbar, Routes, and Footer
+│
+├── components/           # Reusable UI components
+│   ├── Navbar.tsx        # Navigation bar (appears on all pages)
+│   ├── Header.tsx        # Page header component
+│   ├── Counter.tsx       # Interactive counter with state
+│   ├── FeatureCard.tsx   # Card component for displaying features
+│   └── *.css             # Component-scoped styles
+│
+├── pages/                # Page-level components (route targets)
+│   ├── Home.tsx          # Landing page
+│   ├── GettingStarted.tsx # Getting started guide page
+│   └── *.css             # Page-scoped styles
+│
+├── test/                 # Testing configuration
+│   └── setup.ts          # Vitest setup and global test config
+│
+├── index.css             # Global styles
+└── vite-env.d.ts         # Vite environment type definitions
+```
+
+### Data Flow
+
+1. **Entry Point** (`main.tsx`) → Renders the React app
+2. **Root Component** (`App.tsx`) → Sets up routing and layout
+3. **Router** → Directs to appropriate page based on URL
+4. **Pages** → Compose reusable components
+5. **Components** → Render UI and handle local state
+
+### Component Hierarchy
+
+```
+App
+├── Navbar
+├── Routes
+│   ├── Home
+│   │   ├── Header
+│   │   ├── FeatureCard (multiple)
+│   │   └── Counter
+│   └── GettingStarted
+│       └── Header
+└── Footer
+```
+
+### Styling Strategy
+
+- **Component-scoped CSS**: Each component has its own `.css` file
+- **Global styles**: `index.css` for application-wide styling
+- **No CSS-in-JS**: Plain CSS for simplicity and performance
+- **Responsive design**: Mobile-first approach
+
+### Routing
+
+The application uses **React Router v7** for client-side navigation:
+
+- `/` → Home page
+- `/getting-started` → Getting started guide
+- Base path: `/aine-forge-tester/` (for GitHub Pages deployment)
+
+### Testing Architecture
+
+- **Unit Tests**: Component tests using Vitest + React Testing Library
+- **Test Files**: Colocated with components (`*.test.tsx`)
+- **Test Setup**: Configured in `src/test/setup.ts`
+- **Coverage**: Available via `npm run test:coverage`
 
 ## 🛠️ Getting Started
 
@@ -22,7 +122,6 @@ This repository is set up as a foundation for testing agentic coding tools. It i
 
 - Node.js 18+ 
 - npm 9+
-- 
 
 ### Installation
 
@@ -50,38 +149,6 @@ npm run dev
 | `npm run test:watch` | Run tests in watch mode |
 | `npm run test:coverage` | Run tests with coverage report |
 
-## 📁 Project Structure
-
-```
-├── .github/
-│   └── workflows/
-│       └── ci.yml          # CI/CD pipeline
-├── public/
-│   └── vite.svg            # Favicon
-├── src/
-│   ├── components/
-│   │   ├── Counter.tsx     # Interactive counter component
-│   │   ├── Counter.css
-│   │   ├── Counter.test.tsx
-│   │   ├── FeatureCard.tsx # Feature display card
-│   │   ├── FeatureCard.css
-│   │   ├── FeatureCard.test.tsx
-│   │   ├── Header.tsx      # Page header
-│   │   ├── Header.css
-│   │   └── Header.test.tsx
-│   ├── test/
-│   │   └── setup.ts        # Test configuration
-│   ├── App.tsx             # Main application
-│   ├── App.css
-│   ├── main.tsx            # Entry point
-│   └── index.css           # Global styles
-├── index.html
-├── package.json
-├── tsconfig.json
-├── tsconfig.node.json
-└── vite.config.ts
-```
-
 ## 🧪 Testing Scenarios
 
 This repo is designed for testing agentic coding tools. Here are some suggested scenarios:
@@ -97,7 +164,7 @@ This repo is designed for testing agentic coding tools. Here are some suggested 
 - Add a theme toggle (dark/light mode)
 
 ### Advanced
-- Add React Router for navigation
+- Add a new page and route
 - Implement data fetching with a mock API
 - Add state management (Context API or Zustand)
 - Create a complete CRUD feature
