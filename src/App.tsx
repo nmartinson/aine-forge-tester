@@ -6,6 +6,7 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import GettingStarted from './pages/GettingStarted'
 import TodoList from './pages/TodoList'
+import TicTacToe from './pages/TicTacToe'
 import './App.css'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/getting-started" element={<GettingStarted />} />
             <Route path="/todo" element={<TodoList />} />
+            <Route path="/tictactoe" element={<TicTacToe />} />
           </Routes>
 
           <footer className="footer">
