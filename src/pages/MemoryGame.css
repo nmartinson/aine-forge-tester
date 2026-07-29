@@ -1,0 +1,314 @@
+.memory-game-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.memory-game-container::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  top: -100px;
+  right: -100px;
+  animation: float 6s ease-in-out infinite;
+}
+
+.memory-game-container::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  bottom: -50px;
+  left: -50px;
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+}
+
+.memory-game-content {
+  position: relative;
+  z-index: 1;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 20px;
+  padding: 3rem;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.memory-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  background: linear-gradient(135deg, #3b82f6 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.memory-subtitle {
+  font-size: 1.1rem;
+  color: rgba(226, 232, 240, 0.7);
+  margin: 0 0 2rem 0;
+  animation: fadeIn 0.8s ease-out 0.1s both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.memory-stats {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(51, 65, 85, 0.5);
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  animation: fadeIn 0.8s ease-out 0.2s both;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: rgba(226, 232, 240, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #3b82f6;
+}
+
+.memory-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+  animation: fadeIn 0.8s ease-out 0.3s both;
+}
+
+.memory-card {
+  aspect-ratio: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  perspective: 1000px;
+  padding: 0;
+  position: relative;
+  height: 100%;
+  transition: transform 0.2s ease;
+}
+
+.memory-card:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.memory-card:disabled {
+  cursor: not-allowed;
+}
+
+.memory-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.memory-card.flipped .memory-card-inner {
+  transform: rotateY(180deg);
+}
+
+.memory-card-front,
+.memory-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  font-size: 2rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.memory-card-front {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  border: 2px solid rgba(59, 130, 246, 0.5);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.memory-card:hover:not(:disabled) .memory-card-front {
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+  border-color: rgba(59, 130, 246, 0.8);
+}
+
+.memory-card-back {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 2px solid rgba(148, 163, 184, 0.3);
+  transform: rotateY(180deg);
+}
+
+.memory-card.matched .memory-card-front {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border-color: rgba(16, 185, 129, 0.5);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.memory-card.matched .memory-card-back {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  opacity: 0.5;
+}
+
+.memory-win-message {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(16, 185, 129, 0.1);
+  border: 2px solid rgba(16, 185, 129, 0.3);
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  animation: slideIn 0.5s ease-out;
+}
+
+.memory-win-message h2 {
+  font-size: 2rem;
+  margin: 0 0 0.5rem 0;
+  color: #10b981;
+}
+
+.memory-win-message p {
+  margin: 0;
+  color: rgba(226, 232, 240, 0.8);
+  font-size: 1.1rem;
+}
+
+.memory-reset-btn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #3b82f6 0%, #a855f7 100%);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.memory-reset-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+}
+
+.memory-reset-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .memory-game-content {
+    padding: 1.5rem;
+  }
+
+  .memory-title {
+    font-size: 2rem;
+  }
+
+  .memory-board {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+  }
+
+  .memory-card-front,
+  .memory-card-back {
+    font-size: 1.5rem;
+  }
+
+  .memory-stats {
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .memory-game-container {
+    padding: 1rem;
+  }
+
+  .memory-game-content {
+    padding: 1rem;
+  }
+
+  .memory-title {
+    font-size: 1.5rem;
+  }
+
+  .memory-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .memory-board {
+    gap: 0.5rem;
+  }
+
+  .memory-card-front,
+  .memory-card-back {
+    font-size: 1.2rem;
+  }
+}
