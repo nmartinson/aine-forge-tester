@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import './SnakeGame.css'
 
 interface Position {
@@ -28,6 +28,16 @@ function SnakeGame() {
       y: Math.floor(Math.random() * GRID_SIZE),
     }
   }
+
+  const startGame = useCallback(() => {
+    setSnake([{ x: 10, y: 10 }])
+    setFood(generateFood())
+    setDirection('RIGHT')
+    setNextDirection('RIGHT')
+    setGameOver(false)
+    setScore(0)
+    setGameStarted(true)
+  }, [])
 
   // Handle keyboard input
   useEffect(() => {
@@ -62,7 +72,7 @@ function SnakeGame() {
 
     window.addEventListener('keydown', handleKeyPress)
     return () => window.removeEventListener('keydown', handleKeyPress)
-  }, [direction, gameStarted])
+  }, [direction, gameStarted, startGame])
 
   // Game loop
   useEffect(() => {
@@ -95,7 +105,7 @@ function SnakeGame() {
           return prevSnake
         }
 
-        let newSnake = [newHead, ...prevSnake]
+        const newSnake = [newHead, ...prevSnake]
 
         // Check if food is eaten
         if (newHead.x === food.x && newHead.y === food.y) {
@@ -113,16 +123,6 @@ function SnakeGame() {
       if (gameLoopRef.current) clearInterval(gameLoopRef.current)
     }
   }, [gameStarted, gameOver, food, nextDirection])
-
-  const startGame = () => {
-    setSnake([{ x: 10, y: 10 }])
-    setFood(generateFood())
-    setDirection('RIGHT')
-    setNextDirection('RIGHT')
-    setGameOver(false)
-    setScore(0)
-    setGameStarted(true)
-  }
 
   const resetGame = () => {
     setGameStarted(false)
