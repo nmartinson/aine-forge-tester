@@ -50,6 +50,24 @@
   margin-right: auto;
 }
 
+.demos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.demo-item {
+  text-align: left;
+}
+
+.demo-item h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .main-content {
@@ -57,6 +75,10 @@
   }
 
   .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .demos-container {
     grid-template-columns: 1fr;
   }
 }
