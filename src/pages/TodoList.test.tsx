@@ -114,4 +114,51 @@ describe('TodoList', () => {
 
     expect(screen.getByText(/No tasks yet!/)).toBeInTheDocument()
   })
+
+  it('sets default priority to medium when adding a todo', () => {
+    render(<TodoList />)
+    const input = screen.getByPlaceholderText('Add a new task...')
+    const addButton = screen.getByText('➕ Add')
+
+    fireEvent.change(input, { target: { value: 'Test task' } })
+    fireEvent.click(addButton)
+
+    // Verify that the default priority is 'medium'
+    const prioritySelects = screen.getAllByLabelText('Update priority')
+    expect(prioritySelects[0]).toHaveValue('medium')
+  })
+
+  it('allows changing priority of existing todos', () => {
+    render(<TodoList />)
+    const input = screen.getByPlaceholderText('Add a new task...')
+    const addButton = screen.getByText('➕ Add')
+
+    fireEvent.change(input, { target: { value: 'Test task' } })
+    fireEvent.click(addButton)
+
+    const prioritySelect = screen.getByLabelText('Update priority')
+    fireEvent.change(prioritySelect, { target: { value: 'high' } })
+
+    expect(prioritySelect).toHaveValue('high')
+  })
+
+  it('displays high priority count in stats', () => {
+    render(<TodoList />)
+    const input = screen.getByPlaceholderText('Add a new task...')
+    const prioritySelect = screen.getByLabelText('Select priority')
+    const addButton = screen.getByText('➕ Add')
+
+    // Add a high priority task
+    fireEvent.change(input, { target: { value: 'Urgent task' } })
+    fireEvent.change(prioritySelect, { target: { value: 'high' } })
+    fireEvent.click(addButton)
+
+    // Add a low priority task
+    fireEvent.change(input, { target: { value: 'Low priority task' } })
+    fireEvent.change(prioritySelect, { target: { value: 'low' } })
+    fireEvent.click(addButton)
+
+    const stats = screen.getAllByText(/\d+/)
+    expect(stats[3]).toHaveTextContent('1') // High Priority count
+  })
 })
