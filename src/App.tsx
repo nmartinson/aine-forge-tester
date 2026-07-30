@@ -10,6 +10,7 @@ import TicTacToe from './pages/TicTacToe'
 import MemoryGame from './pages/MemoryGame'
 import SnakeGame from './pages/SnakeGame'
 import WordPuzzle from './pages/WordPuzzle'
+import Wordle from './pages/Wordle'
 import './App.css'
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
             <Route path="/memory" element={<MemoryGame />} />
             <Route path="/snake" element={<SnakeGame />} />
             <Route path="/word-puzzle" element={<WordPuzzle />} />
+            <Route path="/wordle" element={<Wordle />} />
           </Routes>
 
           <footer className="footer">
