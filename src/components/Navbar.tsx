@@ -50,6 +50,12 @@ function Navbar() {
             🧠 Memory
           </NavLink>
           <NavLink 
+            to="/flip-card" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            🃏 Flip Card
+          </NavLink>
+          <NavLink 
             to="/snake" 
             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           >
