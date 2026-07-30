@@ -35,7 +35,8 @@ function FlipCard() {
 
   useEffect(() => {
     initializeGame()
-  }, [initializeGame])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   // Check for matches
   useEffect(() => {
