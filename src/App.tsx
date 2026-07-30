@@ -11,6 +11,7 @@ import MemoryGame from './pages/MemoryGame'
 import SnakeGame from './pages/SnakeGame'
 import WordPuzzle from './pages/WordPuzzle'
 import Wordle from './pages/Wordle'
+import Hangman from './pages/Hangman'
 import './App.css'
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
             <Route path="/snake" element={<SnakeGame />} />
             <Route path="/word-puzzle" element={<WordPuzzle />} />
             <Route path="/wordle" element={<Wordle />} />
+            <Route path="/hangman" element={<Hangman />} />
           </Routes>
 
           <footer className="footer">
