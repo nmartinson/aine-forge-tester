@@ -19,6 +19,7 @@ import GuessTheNumber from './pages/GuessTheNumber'
 import SimonSays from './pages/SimonSays'
 import Checkers from './pages/Checkers'
 import USStateMap from './pages/USStateMap'
+import FlipCard from './pages/FlipCard'
 import './App.css'
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
             <Route path="/simon-says" element={<SimonSays />} />
             <Route path="/checkers" element={<Checkers />} />
             <Route path="/us-state-map" element={<USStateMap />} />
+            <Route path="/flip-card" element={<FlipCard />} />
           </Routes>
 
           <footer className="footer">
