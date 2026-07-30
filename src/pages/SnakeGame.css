@@ -1,7 +1,7 @@
 .snake-container {
   min-height: 100vh;
   padding: 2rem 1rem;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  background: linear-gradient(135deg, var(--background-color) 0%, var(--surface-color) 100%);
 }
 
 .snake-content {
@@ -12,33 +12,40 @@
 .snake-content h1 {
   text-align: center;
   font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  color: var(--text-color);
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .snake-content .subtitle {
   text-align: center;
   font-size: 1.1rem;
-  color: var(--text-secondary);
+  color: var(--text-muted);
   margin-bottom: 2rem;
 }
 
 .game-wrapper {
-  background: var(--bg-secondary);
+  background: var(--card-bg);
   border-radius: 12px;
   padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   margin-bottom: 2rem;
+  border: 1px solid var(--border-color);
 }
 
 .stats-bar {
   display: flex;
   justify-content: space-around;
   margin-bottom: 2rem;
-  padding: 1rem;
-  background: var(--bg-primary);
-  border-radius: 8px;
+  padding: 1.25rem;
+  background: var(--surface-color);
+  border-radius: 10px;
   gap: 1rem;
+  border: 1px solid var(--border-color);
 }
 
 .stat {
@@ -50,56 +57,62 @@
 
 .stat-label {
   font-size: 0.9rem;
-  color: var(--text-secondary);
+  color: var(--text-muted);
   font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .stat-value {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--color-primary);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary-color);
 }
 
 .game-over-message {
   text-align: center;
   padding: 1.5rem;
-  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.05));
+  border-radius: 10px;
   margin-bottom: 1.5rem;
   animation: slideDown 0.5s ease-out;
+  border: 1px solid rgba(239, 68, 68, 0.3);
 }
 
 .game-over-message p {
   font-size: 1.3rem;
-  font-weight: bold;
-  color: white;
+  font-weight: 700;
+  color: var(--error-color);
   margin: 0.5rem 0;
 }
 
 .final-score {
   font-size: 1rem !important;
   opacity: 0.9;
+  color: var(--text-muted);
 }
 
 .start-message {
   text-align: center;
   padding: 1.5rem;
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05));
+  border-radius: 10px;
   margin-bottom: 1.5rem;
   animation: slideDown 0.5s ease-out;
+  border: 1px solid var(--border-color);
 }
 
 .start-message p {
   font-size: 1rem;
   font-weight: 600;
-  color: white;
+  color: var(--text-color);
   margin: 0.5rem 0;
 }
 
 .controls-hint {
   font-size: 0.9rem !important;
-  opacity: 0.9;
+  opacity: 0.8;
+  color: var(--text-muted);
 }
 
 @keyframes slideDown {
@@ -118,29 +131,30 @@
   justify-content: center;
   margin-bottom: 2rem;
   padding: 1rem;
-  background: var(--bg-primary);
-  border-radius: 8px;
+  background: var(--surface-color);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
 }
 
 .game-grid {
   position: relative;
-  background: #1a1a1a;
-  border: 3px solid var(--color-primary);
-  border-radius: 4px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  background: #0a0e1a;
+  border: 3px solid var(--primary-color);
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
 }
 
 .snake-segment {
   position: absolute;
-  background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
-  border: 1px solid #16a34a;
+  background: linear-gradient(135deg, var(--success-color) 0%, #059669 100%);
+  border: 1px solid rgba(16, 185, 129, 0.5);
   border-radius: 2px;
-  box-shadow: 0 0 4px rgba(74, 222, 128, 0.5);
+  box-shadow: 0 0 4px rgba(16, 185, 129, 0.4);
 }
 
 .snake-segment.head {
-  background: linear-gradient(135deg, #86efac 0%, #4ade80 100%);
-  box-shadow: 0 0 8px rgba(134, 239, 172, 0.8);
+  background: linear-gradient(135deg, #86efac 0%, var(--success-color) 100%);
+  box-shadow: 0 0 8px rgba(134, 239, 172, 0.6);
   border-radius: 3px;
 }
 
@@ -168,26 +182,27 @@
   justify-content: center;
   gap: 1rem;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 
 .start-button,
 .reset-button {
-  padding: 0.75rem 2rem;
+  padding: 0.85rem 2rem;
   font-size: 1rem;
   font-weight: 600;
   color: white;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
 }
 
 .start-button:hover,
 .reset-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
 }
 
 .start-button:active,
@@ -196,16 +211,18 @@
 }
 
 .instructions {
-  background: var(--bg-secondary);
+  background: var(--card-bg);
   border-radius: 12px;
   padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--border-color);
 }
 
 .instructions h2 {
   margin-top: 0;
-  color: var(--text-primary);
+  color: var(--text-color);
   font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .instructions ul {
@@ -216,15 +233,16 @@
 
 .instructions li {
   padding: 0.75rem 0;
-  padding-left: 1.5rem;
-  color: var(--text-secondary);
+  padding-left: 1.75rem;
+  color: var(--text-muted);
   position: relative;
+  line-height: 1.6;
 }
 
 .instructions li:before {
   content: '✓';
   position: absolute;
   left: 0;
-  color: var(--color-primary);
-  font-weight: bold;
+  color: var(--success-color);
+  font-weight: 700;
 }

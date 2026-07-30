@@ -1,49 +1,49 @@
 :root {
-  /* Fun, vibrant color palette */
-  --primary-color: #6366f1;      /* Indigo */
-  --primary-hover: #4f46e5;
-  --secondary-color: #ec4899;    /* Pink */
-  --accent-color: #8b5cf6;       /* Purple */
-  --success-color: #10b981;      /* Emerald */
-  --warning-color: #f59e0b;      /* Amber */
-  --error-color: #ef4444;        /* Red */
+  /* Modern, sophisticated color palette */
+  --primary-color: #3b82f6;       /* Blue */
+  --primary-hover: #2563eb;
+  --secondary-color: #8b5cf6;     /* Violet */
+  --accent-color: #06b6d4;        /* Cyan */
+  --success-color: #10b981;       /* Emerald */
+  --warning-color: #f59e0b;       /* Amber */
+  --error-color: #ef4444;         /* Red */
   
-  /* Background colors - lighter, more inviting */
-  --background-color: #1e1b4b;   /* Deep indigo */
-  --surface-color: #312e81;      /* Indigo surface */
-  --card-bg: #3730a3;            /* Card background */
-  --navbar-bg: #1e1b4b;          /* Navbar background */
+  /* Modern background colors - clean and minimal */
+  --background-color: #0f172a;    /* Deep slate */
+  --surface-color: #1e293b;       /* Slate */
+  --card-bg: #334155;             /* Slate-600 */
+  --navbar-bg: #0f172a;           /* Deep slate */
   
   /* Text colors */
-  --text-color: #f8fafc;         /* Bright white */
-  --text-muted: #c7d2fe;         /* Light indigo */
+  --text-color: #f1f5f9;          /* Slate-100 */
+  --text-muted: #cbd5e1;          /* Slate-300 */
   
   /* Border */
-  --border-color: rgba(139, 92, 246, 0.3);  /* Purple tint */
+  --border-color: rgba(59, 130, 246, 0.2);  /* Blue tint */
 }
 
 /* Light mode theme */
 [data-theme="light"] {
-  --primary-color: #4f46e5;      /* Indigo */
-  --primary-hover: #4338ca;
-  --secondary-color: #db2777;    /* Pink */
-  --accent-color: #7c3aed;       /* Purple */
-  --success-color: #059669;      /* Emerald */
-  --warning-color: #d97706;      /* Amber */
-  --error-color: #dc2626;        /* Red */
+  --primary-color: #2563eb;       /* Blue */
+  --primary-hover: #1d4ed8;
+  --secondary-color: #7c3aed;     /* Violet */
+  --accent-color: #0891b2;        /* Cyan */
+  --success-color: #059669;       /* Emerald */
+  --warning-color: #d97706;       /* Amber */
+  --error-color: #dc2626;         /* Red */
   
   /* Light background colors */
-  --background-color: #f8fafc;   /* Light slate */
-  --surface-color: #f1f5f9;      /* Lighter slate */
-  --card-bg: #ffffff;            /* White */
-  --navbar-bg: #ffffff;          /* White navbar */
+  --background-color: #f8fafc;    /* Slate-50 */
+  --surface-color: #f1f5f9;       /* Slate-100 */
+  --card-bg: #ffffff;             /* White */
+  --navbar-bg: #ffffff;           /* White navbar */
   
   /* Light text colors */
-  --text-color: #1e293b;         /* Dark slate */
-  --text-muted: #64748b;         /* Muted slate */
+  --text-color: #0f172a;          /* Slate-900 */
+  --text-muted: #475569;          /* Slate-600 */
   
   /* Light border */
-  --border-color: rgba(79, 70, 229, 0.2);  /* Indigo tint */
+  --border-color: rgba(37, 99, 235, 0.15);  /* Blue tint */
 }
 
 * {
@@ -53,11 +53,13 @@
 }
 
 body {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  line-height: 1.6;
   font-weight: 400;
   color: var(--text-color);
-  background: linear-gradient(135deg, var(--background-color) 0%, #0f172a 100%);
+  background: linear-gradient(135deg, var(--background-color) 0%, #1a1f35 100%);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -65,7 +67,7 @@ body {
 }
 
 [data-theme="light"] body {
-  background: linear-gradient(135deg, var(--background-color) 0%, #e2e8f0 100%);
+  background: linear-gradient(135deg, var(--background-color) 0%, #e0e7ff 100%);
 }
 
 #root {
@@ -85,31 +87,49 @@ a:hover {
 }
 
 button {
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 0.65em 1.3em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: white;
   cursor: pointer;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
 }
 
 button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.35);
+}
+
+button:active {
+  transform: translateY(0);
 }
 
 button:focus,
 button:focus-visible {
-  outline: 4px auto var(--accent-color);
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
 }
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
 }
 
 ul {
@@ -118,7 +138,7 @@ ul {
 
 /* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -127,7 +147,7 @@ ul {
 
 ::-webkit-scrollbar-thumb {
   background: var(--primary-color);
-  border-radius: 4px;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {

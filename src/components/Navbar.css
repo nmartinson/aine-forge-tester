@@ -1,16 +1,17 @@
 .navbar {
   background: linear-gradient(135deg, var(--navbar-bg) 0%, var(--surface-color) 100%);
-  border-bottom: 2px solid var(--primary-color);
-  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 1.5rem;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   transition: background-color 0.3s ease, border-color 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
 [data-theme="light"] .navbar {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .navbar-content {
@@ -24,7 +25,7 @@
 .navbar-brand {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 
 .navbar-logo {
@@ -42,7 +43,7 @@
 
 .navbar-links {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.25rem;
   align-items: center;
 }
 
@@ -50,27 +51,29 @@
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
+  padding: 0.65rem 1.1rem;
+  border-radius: 10px;
   font-weight: 500;
   color: var(--text-color);
   text-decoration: none;
   transition: all 0.2s ease;
   background: transparent;
   border: 1px solid transparent;
+  font-size: 0.95rem;
 }
 
 .nav-link:hover {
-  background: var(--surface-color);
+  background: rgba(59, 130, 246, 0.1);
   border-color: var(--primary-color);
   color: var(--primary-color);
   transform: translateY(-1px);
 }
 
 .nav-link.active {
-  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: white;
   border-color: transparent;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
 .nav-link.active:hover {
@@ -81,12 +84,12 @@
 /* Theme toggle button */
 .theme-toggle {
   background: transparent;
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--border-color);
   color: var(--text-color);
-  padding: 0.5rem 0.8rem;
-  font-size: 1.2rem;
+  padding: 0.6rem 0.8rem;
+  font-size: 1.1rem;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 10px;
   transition: all 0.2s ease;
   box-shadow: none;
   display: flex;
@@ -97,10 +100,10 @@
 }
 
 .theme-toggle:hover {
-  background: var(--surface-color);
-  border-color: var(--accent-color);
+  background: rgba(59, 130, 246, 0.1);
+  border-color: var(--primary-color);
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.2);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
 }
 
 .theme-toggle:focus,
@@ -111,7 +114,7 @@
 
 @media (max-width: 768px) {
   .navbar {
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
   }
 
   .navbar-content {
@@ -124,8 +127,8 @@
   }
 
   .nav-link {
-    padding: 0.5rem 0.8rem;
-    font-size: 0.9rem;
+    padding: 0.55rem 0.9rem;
+    font-size: 0.85rem;
   }
 
   .navbar-links {
