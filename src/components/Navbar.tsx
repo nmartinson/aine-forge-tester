@@ -56,6 +56,12 @@ function Navbar() {
             💀 Hangman
           </NavLink>
           <NavLink 
+            to="/sudoku" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            🔢 Sudoku
+          </NavLink>
+          <NavLink 
             to="/todo" 
             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           >
