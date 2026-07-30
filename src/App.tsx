@@ -20,6 +20,7 @@ import SimonSays from './pages/SimonSays'
 import Checkers from './pages/Checkers'
 import USStateMap from './pages/USStateMap'
 import FlipCard from './pages/FlipCard'
+import WhackAMole from './pages/WhackAMole'
 import './App.css'
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
             <Route path="/checkers" element={<Checkers />} />
             <Route path="/us-state-map" element={<USStateMap />} />
             <Route path="/flip-card" element={<FlipCard />} />
+            <Route path="/whack-a-mole" element={<WhackAMole />} />
           </Routes>
 
           <footer className="footer">

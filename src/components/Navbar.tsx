@@ -98,6 +98,12 @@ function Navbar() {
             🎵 Simon Says
           </NavLink>
           <NavLink 
+            to="/whack-a-mole" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            🔨 Whack-a-Mole
+          </NavLink>
+          <NavLink 
             to="/us-state-map" 
             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           >
