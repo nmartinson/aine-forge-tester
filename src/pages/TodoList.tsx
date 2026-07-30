@@ -1,15 +1,19 @@
 import { useState } from 'react'
 import './TodoList.css'
 
+type Priority = 'low' | 'medium' | 'high'
+
 interface Todo {
   id: number
   text: string
   completed: boolean
+  priority: Priority
 }
 
 function TodoList() {
   const [todos, setTodos] = useState<Todo[]>([])
   const [input, setInput] = useState('')
+  const [selectedPriority, setSelectedPriority] = useState<Priority>('medium')
 
   const addTodo = () => {
     if (input.trim() === '') return
@@ -18,6 +22,7 @@ function TodoList() {
       id: Date.now(),
       text: input,
       completed: false,
+      priority: selectedPriority,
     }
 
     setTodos([...todos, newTodo])
@@ -36,6 +41,14 @@ function TodoList() {
     setTodos(todos.filter((todo) => todo.id !== id))
   }
 
+  const updatePriority = (id: number, priority: Priority) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, priority } : todo
+      )
+    )
+  }
+
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       addTodo()
@@ -43,6 +56,25 @@ function TodoList() {
   }
 
   const completedCount = todos.filter((todo) => todo.completed).length
+  const highPriorityCount = todos.filter((todo) => todo.priority === 'high' && !todo.completed).length
+
+  const getPriorityColor = (priority: Priority): string => {
+    switch (priority) {
+      case 'high':
+        return '#ff6b6b'
+      case 'medium':
+        return '#ffd93d'
+      case 'low':
+        return '#6bcf7f'
+      default:
+        return '#999'
+    }
+  }
+
+  const sortedTodos = [...todos].sort((a, b) => {
+    const priorityOrder = { high: 0, medium: 1, low: 2 }
+    return priorityOrder[a.priority] - priorityOrder[b.priority]
+  })
 
   return (
     <main className="todo-container">
@@ -66,6 +98,10 @@ function TodoList() {
           <span className="stat-label">Remaining:</span>
           <span className="stat-value">{todos.length - completedCount}</span>
         </div>
+        <div className="stat">
+          <span className="stat-label">High Priority:</span>
+          <span className="stat-value">{highPriorityCount}</span>
+        </div>
       </div>
 
       <div className="todo-input-section">
@@ -77,6 +113,16 @@ function TodoList() {
           placeholder="Add a new task..."
           className="todo-input"
         />
+        <select
+          value={selectedPriority}
+          onChange={(e) => setSelectedPriority(e.target.value as Priority)}
+          className="todo-priority-select"
+          aria-label="Select priority"
+        >
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
         <button onClick={addTodo} className="todo-add-btn">
           ➕ Add
         </button>
@@ -89,8 +135,13 @@ function TodoList() {
           </div>
         ) : (
           <ul className="todo-items">
-            {todos.map((todo) => (
+            {sortedTodos.map((todo) => (
               <li key={todo.id} className="todo-item">
+                <div
+                  className="priority-indicator"
+                  style={{ backgroundColor: getPriorityColor(todo.priority) }}
+                  title={`Priority: ${todo.priority}`}
+                />
                 <input
                   type="checkbox"
                   checked={todo.completed}
@@ -104,6 +155,16 @@ function TodoList() {
                 >
                   {todo.text}
                 </span>
+                <select
+                  value={todo.priority}
+                  onChange={(e) => updatePriority(todo.id, e.target.value as Priority)}
+                  className="todo-priority-badge"
+                  aria-label="Update priority"
+                >
+                  <option value="low">Low</option>
+                  <option value="medium">Medium</option>
+                  <option value="high">High</option>
+                </select>
                 <button
                   onClick={() => deleteTodo(todo.id)}
                   className="todo-delete-btn"
