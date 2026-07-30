@@ -56,6 +56,12 @@ function Navbar() {
             🐍 Snake
           </NavLink>
           <NavLink 
+            to="/minesweeper" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            💣 Minesweeper
+          </NavLink>
+          <NavLink 
             to="/word-puzzle" 
             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           >
