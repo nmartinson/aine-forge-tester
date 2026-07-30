@@ -17,6 +17,7 @@ import TowersOfHanoi from './pages/TowersOfHanoi'
 import Maze3D from './pages/Maze3D'
 import GuessTheNumber from './pages/GuessTheNumber'
 import SimonSays from './pages/SimonSays'
+import Checkers from './pages/Checkers'
 import './App.css'
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
             <Route path="/maze-3d" element={<Maze3D />} />
             <Route path="/guess-the-number" element={<GuessTheNumber />} />
             <Route path="/simon-says" element={<SimonSays />} />
+            <Route path="/checkers" element={<Checkers />} />
           </Routes>
 
           <footer className="footer">
