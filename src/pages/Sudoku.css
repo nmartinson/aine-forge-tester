@@ -1,0 +1,232 @@
+.sudoku-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.sudoku-container h1 {
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.sudoku-description {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.sudoku-game {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.sudoku-board {
+  display: inline-grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 0;
+  border: 3px solid var(--text-color);
+  background-color: var(--surface-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sudoku-row {
+  display: contents;
+}
+
+.sudoku-cell {
+  width: 50px;
+  height: 50px;
+  border: 1px solid var(--border-color);
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sudoku-cell:hover:not(:disabled) {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.sudoku-cell.selected {
+  background-color: var(--accent-color);
+  color: white;
+  box-shadow: inset 0 0 0 2px var(--primary-color);
+}
+
+.sudoku-cell.initial {
+  background-color: var(--surface-color);
+  font-weight: bold;
+  cursor: not-allowed;
+  color: var(--text-color);
+}
+
+.sudoku-cell.initial:hover {
+  background-color: var(--surface-color);
+  color: var(--text-color);
+}
+
+.sudoku-cell:disabled {
+  cursor: not-allowed;
+}
+
+.sudoku-cell.invalid {
+  background-color: var(--error-color);
+  color: white;
+}
+
+/* Thick borders for 3x3 boxes */
+.sudoku-cell:nth-child(3n) {
+  border-right: 3px solid var(--text-color);
+}
+
+.sudoku-cell:nth-child(3n+1):nth-child(n+28) {
+  border-bottom: 3px solid var(--text-color);
+}
+
+.sudoku-row:nth-child(3n) .sudoku-cell {
+  border-bottom: 3px solid var(--text-color);
+}
+
+.sudoku-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 250px;
+}
+
+.sudoku-stats {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.sudoku-stats p {
+  margin: 0.5rem 0;
+  color: var(--text-color);
+  font-size: 1.1rem;
+}
+
+.mistakes-count {
+  font-weight: bold;
+  color: var(--error-color);
+  font-size: 1.3rem;
+}
+
+.completed-message {
+  color: var(--success-color);
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.sudoku-input {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.sudoku-input p {
+  margin: 0 0 1rem 0;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.number-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.number-btn {
+  padding: 0.75rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.number-btn:hover:not(:disabled) {
+  background-color: var(--accent-color);
+  transform: scale(1.05);
+}
+
+.number-btn:disabled {
+  background-color: var(--border-color);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.clear-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--warning-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clear-btn:hover:not(:disabled) {
+  background-color: #ff9800;
+}
+
+.clear-btn:disabled {
+  background-color: var(--border-color);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.reset-btn {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--success-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reset-btn:hover {
+  background-color: #45a049;
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .sudoku-game {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sudoku-cell {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .sudoku-controls {
+    min-width: 100%;
+    max-width: 300px;
+  }
+}
