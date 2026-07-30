@@ -26,6 +26,12 @@ function Navbar() {
             🎮 Wordle
           </NavLink>
           <NavLink 
+            to="/2048" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            🎮 2048
+          </NavLink>
+          <NavLink 
             to="/tictactoe" 
             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           >
