@@ -32,7 +32,7 @@ function App() {
           <Navbar />
           
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home />} />\
             <Route path="/getting-started" element={<GettingStarted />} />
             <Route path="/todo" element={<TodoList />} />
             <Route path="/tictactoe" element={<TicTacToe />} />
