@@ -21,6 +21,7 @@ import Checkers from './pages/Checkers'
 import USStateMap from './pages/USStateMap'
 import FlipCard from './pages/FlipCard'
 import ConnectFour from './pages/ConnectFour'
+import MountainBikeTrail from './pages/MountainBikeTrail'
 import './App.css'
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
             <Route path="/us-state-map" element={<USStateMap />} />
             <Route path="/flip-card" element={<FlipCard />} />
             <Route path="/connect-four" element={<ConnectFour />} />
+            <Route path="/mountain-bike-trail" element={<MountainBikeTrail />} />
           </Routes>
 
           <footer className="footer">
