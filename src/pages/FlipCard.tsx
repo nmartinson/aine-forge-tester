@@ -8,7 +8,7 @@ interface Card {
   isMatched: boolean
 }
 
-const cardValues = ['🍎', '🍌', '🍒', '🍓', '🍊', '🍋', '🍌', '🍎', '🍒', '🍓', '🍊', '🍋']
+const CARD_VALUES = ['🍎', '🍌', '🍒', '🍓', '🍊', '🍋', '🍌', '🍎', '🍒', '🍓', '🍊', '🍋']
 
 function FlipCard() {
   const [cards, setCards] = useState<Card[]>([])
@@ -17,8 +17,9 @@ function FlipCard() {
   const [moves, setMoves] = useState<number>(0)
   const [gameWon, setGameWon] = useState<boolean>(false)
 
+  // Initialize game
   const initializeGame = useCallback(() => {
-    const shuffled = [...cardValues].sort(() => Math.random() - 0.5)
+    const shuffled = [...CARD_VALUES].sort(() => Math.random() - 0.5)
     const newCards: Card[] = shuffled.map((value, index) => ({
       id: index,
       value,
@@ -32,7 +33,6 @@ function FlipCard() {
     setGameWon(false)
   }, [])
 
-  // Initialize game
   useEffect(() => {
     initializeGame()
   }, [initializeGame])
