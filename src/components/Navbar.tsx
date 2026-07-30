@@ -50,6 +50,12 @@ function Navbar() {
             📚 Word Puzzle
           </NavLink>
           <NavLink 
+            to="/hangman" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            💀 Hangman
+          </NavLink>
+          <NavLink 
             to="/todo" 
             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           >
