@@ -37,17 +37,21 @@ describe('Minesweeper', () => {
 
   it('places a flag on right-click and increments flag count', () => {
     render(<Minesweeper />)
-    const cells = screen.getAllByRole('button', { name: /Hidden cell/i })
-    fireEvent.contextMenu(cells[0])
+    const cell = screen.getAllByRole('button', { name: /Hidden cell/i })[0]
+    fireEvent.contextMenu(cell)
     expect(screen.getByText(/1 flagged/)).toBeInTheDocument()
   })
 
   it('removes a flag on second right-click', () => {
     render(<Minesweeper />)
-    const cells = screen.getAllByRole('button', { name: /Hidden cell/i })
-    fireEvent.contextMenu(cells[0])
+    // Capture the element reference once; reuse it for both right-clicks
+    // so the second contextMenu targets the same cell regardless of aria-label change
+    const cell = screen.getAllByRole('button', { name: /Hidden cell/i })[0]
+    fireEvent.contextMenu(cell)
     expect(screen.getByText(/1 flagged/)).toBeInTheDocument()
-    fireEvent.contextMenu(cells[0])
+    // cell is the same DOM node — its aria-label is now "Flagged cell at row 1 column 1"
+    // but the reference is still valid; right-clicking again removes the flag
+    fireEvent.contextMenu(cell)
     expect(screen.getByText(/0 flagged/)).toBeInTheDocument()
   })
 
