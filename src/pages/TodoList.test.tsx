@@ -123,10 +123,9 @@ describe('TodoList', () => {
     fireEvent.change(input, { target: { value: 'Test task' } })
     fireEvent.click(addButton)
 
-    // This test will intentionally fail - the priority select should show 'medium'
-    // but we're checking for 'low' to demonstrate test failure handling
+    // Verify that the default priority is 'medium'
     const prioritySelects = screen.getAllByLabelText('Update priority')
-    expect(prioritySelects[0]).toHaveValue('low')
+    expect(prioritySelects[0]).toHaveValue('medium')
   })
 
   it('allows changing priority of existing todos', () => {
