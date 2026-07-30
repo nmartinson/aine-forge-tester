@@ -68,6 +68,12 @@ function Navbar() {
             🗼 Towers of Hanoi
           </NavLink>
           <NavLink 
+            to="/maze-3d" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            🧩 Maze 3D
+          </NavLink>
+          <NavLink 
             to="/todo" 
             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           >
