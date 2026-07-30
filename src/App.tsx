@@ -15,6 +15,7 @@ import Hangman from './pages/Hangman'
 import Sudoku from './pages/Sudoku'
 import TowersOfHanoi from './pages/TowersOfHanoi'
 import Maze3D from './pages/Maze3D'
+import GuessTheNumber from './pages/GuessTheNumber'
 import './App.css'
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
             <Route path="/sudoku" element={<Sudoku />} />
             <Route path="/towers-of-hanoi" element={<TowersOfHanoi />} />
             <Route path="/maze-3d" element={<Maze3D />} />
+            <Route path="/guess-the-number" element={<GuessTheNumber />} />
           </Routes>
 
           <footer className="footer">

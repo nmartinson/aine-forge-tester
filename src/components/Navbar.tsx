@@ -20,6 +20,12 @@ function Navbar() {
             🏠 Home
           </NavLink>
           <NavLink 
+            to="/guess-the-number" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            🎯 Guess the Number
+          </NavLink>
+          <NavLink 
             to="/wordle" 
             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           >
