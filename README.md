@@ -1,6 +1,6 @@
 # Aine Forge Tester
 
-A TypeScript/React application - main side of the conflict.
+A TypeScript/React application designed as a testing ground for agentic coding tools.
 
 [![CI and Deploy](https://github.com/royceacho-wwt/aine-forge-tester/actions/workflows/ci.yml/badge.svg)](https://github.com/royceacho-wwt/aine-forge-tester/actions/workflows/ci.yml)
 
