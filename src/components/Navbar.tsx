@@ -62,6 +62,12 @@ function Navbar() {
             🔢 Sudoku
           </NavLink>
           <NavLink 
+            to="/towers-of-hanoi" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            🗼 Towers of Hanoi
+          </NavLink>
+          <NavLink 
             to="/todo" 
             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           >
