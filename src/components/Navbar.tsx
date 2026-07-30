@@ -98,6 +98,12 @@ function Navbar() {
             🎵 Simon Says
           </NavLink>
           <NavLink 
+            to="/us-state-map" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            🗺️ US States
+          </NavLink>
+          <NavLink 
             to="/todo" 
             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           >
