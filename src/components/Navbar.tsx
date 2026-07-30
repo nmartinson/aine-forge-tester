@@ -56,6 +56,12 @@ function Navbar() {
             💀 Hangman
           </NavLink>
           <NavLink 
+            to="/dice-roller" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            🎲 Dice Roller
+          </NavLink>
+          <NavLink 
             to="/todo" 
             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           >
