@@ -19,6 +19,7 @@ import Minesweeper from './pages/Minesweeper'
 import GuessTheNumber from './pages/GuessTheNumber'
 import SimonSays from './pages/SimonSays'
 import Checkers from './pages/Checkers'
+import USStateMap from './pages/USStateMap'
 import './App.css'
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
             <Route path="/guess-the-number" element={<GuessTheNumber />} />
             <Route path="/simon-says" element={<SimonSays />} />
             <Route path="/checkers" element={<Checkers />} />
+            <Route path="/us-state-map" element={<USStateMap />} />
           </Routes>
 
           <footer className="footer">
