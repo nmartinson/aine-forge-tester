@@ -80,6 +80,12 @@ function Navbar() {
             🧩 Maze 3D
           </NavLink>
           <NavLink 
+            to="/simon-says" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            🎵 Simon Says
+          </NavLink>
+          <NavLink 
             to="/todo" 
             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           >
