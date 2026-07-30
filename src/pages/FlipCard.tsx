@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import './FlipCard.css'
 
 interface Card {
@@ -8,9 +8,9 @@ interface Card {
   isMatched: boolean
 }
 
+const CARD_VALUES = ['🍎', '🍌', '🍒', '🍓', '🍊', '🍋', '🍌', '🍎', '🍒', '🍓', '🍊', '🍋']
+
 function FlipCard() {
-  const cardValues = ['🍎', '🍌', '🍒', '🍓', '🍊', '🍋', '🍌', '🍎', '🍒', '🍓', '🍊', '🍋']
-  
   const [cards, setCards] = useState<Card[]>([])
   const [flippedCards, setFlippedCards] = useState<number[]>([])
   const [matchedPairs, setMatchedPairs] = useState<number>(0)
@@ -18,9 +18,24 @@ function FlipCard() {
   const [gameWon, setGameWon] = useState<boolean>(false)
 
   // Initialize game
+  const initializeGame = useCallback(() => {
+    const shuffled = [...CARD_VALUES].sort(() => Math.random() - 0.5)
+    const newCards: Card[] = shuffled.map((value, index) => ({
+      id: index,
+      value,
+      isFlipped: false,
+      isMatched: false,
+    }))
+    setCards(newCards)
+    setFlippedCards([])
+    setMatchedPairs(0)
+    setMoves(0)
+    setGameWon(false)
+  }, [])
+
   useEffect(() => {
     initializeGame()
-  }, [])
+  }, [initializeGame])
 
   // Check for matches
   useEffect(() => {
@@ -51,21 +66,6 @@ function FlipCard() {
       setGameWon(true)
     }
   }, [matchedPairs])
-
-  const initializeGame = () => {
-    const shuffled = [...cardValues].sort(() => Math.random() - 0.5)
-    const newCards: Card[] = shuffled.map((value, index) => ({
-      id: index,
-      value,
-      isFlipped: false,
-      isMatched: false,
-    }))
-    setCards(newCards)
-    setFlippedCards([])
-    setMatchedPairs(0)
-    setMoves(0)
-    setGameWon(false)
-  }
 
   const handleCardClick = (id: number) => {
     if (gameWon || flippedCards.includes(id) || cards[id].isMatched) {
