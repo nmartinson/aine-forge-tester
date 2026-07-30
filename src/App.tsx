@@ -13,6 +13,13 @@ import WordPuzzle from './pages/WordPuzzle'
 import Wordle from './pages/Wordle'
 import Hangman from './pages/Hangman'
 import DiceRoller from './pages/DiceRoller'
+import Sudoku from './pages/Sudoku'
+import TowersOfHanoi from './pages/TowersOfHanoi'
+import Maze3D from './pages/Maze3D'
+import GuessTheNumber from './pages/GuessTheNumber'
+import SimonSays from './pages/SimonSays'
+import Checkers from './pages/Checkers'
+import USStateMap from './pages/USStateMap'
 import './App.css'
 
 function App() {
@@ -33,6 +40,13 @@ function App() {
             <Route path="/wordle" element={<Wordle />} />
             <Route path="/hangman" element={<Hangman />} />
             <Route path="/dice-roller" element={<DiceRoller />} />
+            <Route path="/sudoku" element={<Sudoku />} />
+            <Route path="/towers-of-hanoi" element={<TowersOfHanoi />} />
+            <Route path="/maze-3d" element={<Maze3D />} />
+            <Route path="/guess-the-number" element={<GuessTheNumber />} />
+            <Route path="/simon-says" element={<SimonSays />} />
+            <Route path="/checkers" element={<Checkers />} />
+            <Route path="/us-state-map" element={<USStateMap />} />
           </Routes>
 
           <footer className="footer">

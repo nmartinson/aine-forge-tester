@@ -20,6 +20,12 @@ function Navbar() {
             🏠 Home
           </NavLink>
           <NavLink 
+            to="/guess-the-number" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            🎯 Guess the Number
+          </NavLink>
+          <NavLink 
             to="/wordle" 
             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           >
@@ -30,6 +36,12 @@ function Navbar() {
             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           >
             🎮 Tic Tac Toe
+          </NavLink>
+          <NavLink 
+            to="/checkers" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            ♟️ Checkers
           </NavLink>
           <NavLink 
             to="/memory" 
@@ -60,6 +72,36 @@ function Navbar() {
             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           >
             🎲 Dice Roller
+          </NavLink>
+          <NavLink 
+            to="/sudoku" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            🔢 Sudoku
+          </NavLink>
+          <NavLink 
+            to="/towers-of-hanoi" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            🗼 Towers of Hanoi
+          </NavLink>
+          <NavLink 
+            to="/maze-3d" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            🧩 Maze 3D
+          </NavLink>
+          <NavLink 
+            to="/simon-says" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            🎵 Simon Says
+          </NavLink>
+          <NavLink 
+            to="/us-state-map" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            🗺️ US States
           </NavLink>
           <NavLink 
             to="/todo" 
