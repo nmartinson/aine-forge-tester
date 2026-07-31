@@ -20,6 +20,7 @@ import USStateMap from './pages/USStateMap';
 import FlipCard from './pages/FlipCard';
 import DonkeyKong from './pages/DonkeyKong';
 import ConnectFour from './pages/ConnectFour';
+import Minesweeper from './pages/Minesweeper';
 import MountainBikeTrail from './pages/MountainBikeTrail';
 import BikeComponentsFinder from './pages/BikeComponentsFinder';
 import RockPaperScissorsLizardSpock from './pages/RockPaperScissorsLizardSpock';
@@ -52,6 +53,7 @@ function App() {
             <Route path="/flip-card" element={<FlipCard />} />
             <Route path="/donkey-kong" element={<DonkeyKong />} />
             <Route path="/connect-four" element={<ConnectFour />} />
+            <Route path="/minesweeper" element={<Minesweeper />} />
             <Route path="/mountain-bike-trail" element={<MountainBikeTrail />} />
             <Route path="/bike-components-finder" element={<BikeComponentsFinder />} />
             <Route path="/rpsls" element={<RockPaperScissorsLizardSpock />} />
