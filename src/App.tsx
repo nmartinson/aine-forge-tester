@@ -1,28 +1,28 @@
-// Main App component
-// This is the second comment
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { ThemeProvider } from './utils/ThemeContext'
-import Navbar from './components/Navbar'
-import Home from './pages/Home'
-import GettingStarted from './pages/GettingStarted'
-import TodoList from './pages/TodoList'
-import TicTacToe from './pages/TicTacToe'
-import MemoryGame from './pages/MemoryGame'
-import SnakeGame from './pages/SnakeGame'
-import WordPuzzle from './pages/WordPuzzle'
-import Wordle from './pages/Wordle'
-import Hangman from './pages/Hangman'
-import Sudoku from './pages/Sudoku'
-import TowersOfHanoi from './pages/TowersOfHanoi'
-import Maze3D from './pages/Maze3D'
-import GuessTheNumber from './pages/GuessTheNumber'
-import SimonSays from './pages/SimonSays'
-import Checkers from './pages/Checkers'
-import USStateMap from './pages/USStateMap'
-import FlipCard from './pages/FlipCard'
-import DonkeyKong from './pages/DonkeyKong'
-import ConnectFour from './pages/ConnectFour'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from './utils/ThemeContext';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import GettingStarted from './pages/GettingStarted';
+import TodoList from './pages/TodoList';
+import TicTacToe from './pages/TicTacToe';
+import MemoryGame from './pages/MemoryGame';
+import SnakeGame from './pages/SnakeGame';
+import WordPuzzle from './pages/WordPuzzle';
+import Wordle from './pages/Wordle';
+import Hangman from './pages/Hangman';
+import Sudoku from './pages/Sudoku';
+import TowersOfHanoi from './pages/TowersOfHanoi';
+import Maze3D from './pages/Maze3D';
+import GuessTheNumber from './pages/GuessTheNumber';
+import SimonSays from './pages/SimonSays';
+import Checkers from './pages/Checkers';
+import USStateMap from './pages/USStateMap';
+import FlipCard from './pages/FlipCard';
+import DonkeyKong from './pages/DonkeyKong';
+import ConnectFour from './pages/ConnectFour';
+import MountainBikeTrail from './pages/MountainBikeTrail';
+import BikeComponentsFinder from './pages/BikeComponentsFinder';
+import './App.css';
 
 function App() {
   return (
@@ -51,6 +51,8 @@ function App() {
             <Route path="/flip-card" element={<FlipCard />} />
             <Route path="/donkey-kong" element={<DonkeyKong />} />
             <Route path="/connect-four" element={<ConnectFour />} />
+            <Route path="/mountain-bike-trail" element={<MountainBikeTrail />} />
+            <Route path="/bike-components-finder" element={<BikeComponentsFinder />} />
           </Routes>
 
           <footer className="footer">
