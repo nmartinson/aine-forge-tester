@@ -24,6 +24,7 @@ import FlipCard from './pages/FlipCard'
 import DonkeyKong from './pages/DonkeyKong'
 import ConnectFour from './pages/ConnectFour'
 import MountainBikeTrail from './pages/MountainBikeTrail'
+import BikeComponentsFinder from './pages/BikeComponentsFinder'
 import './App.css'
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
             <Route path="/donkey-kong" element={<DonkeyKong />} />
             <Route path="/connect-four" element={<ConnectFour />} />
             <Route path="/mountain-bike-trail" element={<MountainBikeTrail />} />
+            <Route path="/bike-components-finder" element={<BikeComponentsFinder />} />
           </Routes>
 
           <footer className="footer">
