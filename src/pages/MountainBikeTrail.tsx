@@ -279,12 +279,10 @@ function MountainBikeTrail() {
             </div>
 
             <div className="trail-info">
-              <div className="trail-name">
-                {gameState.selectedTrail?.name} ({gameState.selectedTrail?.difficulty.toUpperCase()})
-              </div>
-              <div className="trail-distance">
-                {gameState.currentPosition.toFixed(1)} / {gameState.selectedTrail?.distance} km
-              </div>
+              <span className="trail-name">{gameState.selectedTrail?.name}</span>
+              <span className="trail-distance">
+                {gameState.selectedTrail?.distance} km total
+              </span>
             </div>
 
             <div className="progress-section">
@@ -294,7 +292,9 @@ function MountainBikeTrail() {
                   style={{ width: `${progressPercentage}%` }}
                 ></div>
               </div>
-              <div className="progress-text">{progressPercentage.toFixed(0)}% Complete</div>
+              <p className="progress-text">
+                {gameState.currentPosition.toFixed(1)} / {gameState.selectedTrail?.distance} km
+              </p>
             </div>
 
             <div className="stats-grid">
@@ -329,6 +329,17 @@ function MountainBikeTrail() {
               </div>
             </div>
 
+            {gameState.gameOver && (
+              <div className={`game-over-message ${gameState.won ? 'won' : 'lost'}`}>
+                <p>{gameState.message}</p>
+                {gameState.won && (
+                  <p>
+                    Time: {gameState.time}s | Speed: {gameState.speed.toFixed(0)} km/h
+                  </p>
+                )}
+              </div>
+            )}
+
             <div className="controls">
               <button
                 className="control-btn accelerate"
@@ -349,36 +360,17 @@ function MountainBikeTrail() {
                 onClick={rest}
                 disabled={gameState.gameOver}
               >
-                😮‍💨 Rest
+                😴 Rest
               </button>
             </div>
 
             {gameState.gameOver && (
-              <div className={`game-over-message ${gameState.won ? 'won' : 'lost'}`}>
-                <p>{gameState.won ? '🏆 Victory!' : '💔 Defeat!'}</p>
-                <p>{gameState.message}</p>
-              </div>
+              <button className="reset-button" onClick={resetGame}>
+                🔄 Start Over
+              </button>
             )}
-
-            <button className="reset-button" onClick={resetGame}>
-              🔄 Choose Another Trail
-            </button>
           </div>
         )}
-
-        <div className="instructions">
-          <h2>How to Play</h2>
-          <ul>
-            <li>Select a bike that matches your riding style</li>
-            <li>Choose a trail based on your skill level</li>
-            <li>Use Accelerate to move forward and gain speed</li>
-            <li>Use Brake to slow down and recover stamina</li>
-            <li>Use Rest to recover stamina faster but lose speed</li>
-            <li>Balance speed and stamina to complete the trail</li>
-            <li>Reach the end of the trail to win!</li>
-            <li>Running out of stamina means game over</li>
-          </ul>
-        </div>
       </div>
     </div>
   )

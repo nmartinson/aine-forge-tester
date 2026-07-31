@@ -20,6 +20,7 @@ import SimonSays from './pages/SimonSays'
 import Checkers from './pages/Checkers'
 import USStateMap from './pages/USStateMap'
 import FlipCard from './pages/FlipCard'
+import DonkeyKong from './pages/DonkeyKong'
 import ConnectFour from './pages/ConnectFour'
 import MountainBikeTrail from './pages/MountainBikeTrail'
 import './App.css'
@@ -49,6 +50,7 @@ function App() {
             <Route path="/checkers" element={<Checkers />} />
             <Route path="/us-state-map" element={<USStateMap />} />
             <Route path="/flip-card" element={<FlipCard />} />
+            <Route path="/donkey-kong" element={<DonkeyKong />} />
             <Route path="/connect-four" element={<ConnectFour />} />
             <Route path="/mountain-bike-trail" element={<MountainBikeTrail />} />
           </Routes>
