@@ -74,6 +74,12 @@ function Navbar() {
             🦍 Donkey Kong
           </NavLink>
           <NavLink 
+            to="/rpsls" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            🖖 RPSLS
+          </NavLink>
+          <NavLink 
             to="/word-puzzle" 
             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           >
