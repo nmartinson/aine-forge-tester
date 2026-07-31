@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import BikeSelector from './BikeSelector'
+import { Bike } from './BikeData'
 import './MountainBikeTrail.css'
 
 interface Trail {
@@ -13,6 +15,7 @@ interface Trail {
 
 interface GameState {
   selectedTrail: Trail | null
+  selectedBike: Bike | null
   currentPosition: number
   speed: number
   stamina: number
@@ -65,26 +68,39 @@ const TRAILS: Trail[] = [
 function MountainBikeTrail() {
   const [gameState, setGameState] = useState<GameState>({
     selectedTrail: null,
+    selectedBike: null,
     currentPosition: 0,
     speed: 0,
     stamina: 100,
     gameStarted: false,
     gameOver: false,
     won: false,
-    message: 'Select a trail to begin your adventure!',
+    message: 'Select a bike and trail to begin your adventure!',
     time: 0,
   })
+
+  const [bikeSelected, setBikeSelected] = useState(false)
+
+  const handleBikeSelected = (bike: Bike) => {
+    setGameState((prev) => ({
+      ...prev,
+      selectedBike: bike,
+      message: `${bike.emoji} ${bike.name} selected! Now choose your trail.`,
+    }))
+    setBikeSelected(true)
+  }
 
   const selectTrail = (trail: Trail) => {
     setGameState({
       selectedTrail: trail,
+      selectedBike: gameState.selectedBike,
       currentPosition: 0,
       speed: 0,
       stamina: 100,
       gameStarted: true,
       gameOver: false,
       won: false,
-      message: `Starting ${trail.name}! Use the controls to navigate.`,
+      message: `Starting ${trail.name} on your ${gameState.selectedBike?.name}! Use the controls to navigate.`,
       time: 0,
     })
   }
@@ -163,15 +179,17 @@ function MountainBikeTrail() {
   const resetGame = () => {
     setGameState({
       selectedTrail: null,
+      selectedBike: null,
       currentPosition: 0,
       speed: 0,
       stamina: 100,
       gameStarted: false,
       gameOver: false,
       won: false,
-      message: 'Select a trail to begin your adventure!',
+      message: 'Select a bike and trail to begin your adventure!',
       time: 0,
     })
+    setBikeSelected(false)
   }
 
   const getDifficultyColor = (difficulty: string) => {
@@ -199,9 +217,19 @@ function MountainBikeTrail() {
         <h1>🚵 Mountain Bike Trail Adventure</h1>
         <p className="subtitle">Navigate challenging trails and test your biking skills!</p>
 
-        {!gameState.gameStarted ? (
+        {!bikeSelected ? (
+          <BikeSelector onBikeSelected={handleBikeSelected} />
+        ) : !gameState.gameStarted ? (
           <div className="trail-selection">
             <h2>Choose Your Trail</h2>
+            <div className="bike-info-banner">
+              <p>
+                🚴 Riding: <strong>{gameState.selectedBike?.name}</strong>
+              </p>
+              <button className="change-bike-btn" onClick={resetGame}>
+                Change Bike
+              </button>
+            </div>
             <div className="trails-grid">
               {TRAILS.map((trail) => (
                 <div
@@ -341,7 +369,8 @@ function MountainBikeTrail() {
         <div className="instructions">
           <h2>How to Play</h2>
           <ul>
-            <li>Select a trail based on your skill level</li>
+            <li>Select a bike that matches your riding style</li>
+            <li>Choose a trail based on your skill level</li>
             <li>Use Accelerate to move forward and gain speed</li>
             <li>Use Brake to slow down and recover stamina</li>
             <li>Use Rest to recover stamina faster but lose speed</li>
