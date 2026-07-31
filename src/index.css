@@ -9,10 +9,10 @@
   --error-color: #ef4444;         /* Red */
   
   /* Modern background colors - clean and minimal */
-  --background-color: #0f172a;    /* Deep slate */
-  --surface-color: #1e293b;       /* Slate */
-  --card-bg: #334155;             /* Slate-600 */
-  --navbar-bg: #0f172a;           /* Deep slate */
+  --background-color: #1a202c;    /* Lighter slate */
+  --surface-color: #23272e;       /* Lighter slate */
+  --card-bg: #2c3036;             /* Lighter slate-600 */
+  --navbar-bg: #1a202c;           /* Lighter slate */
   
   /* Text colors */
   --text-color: #f1f5f9;          /* Slate-100 */
