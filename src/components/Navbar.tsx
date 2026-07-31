@@ -116,6 +116,12 @@ function Navbar() {
             🧩 Maze 3D
           </NavLink>
           <NavLink 
+            to="/minesweeper" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            💣 Minesweeper
+          </NavLink>
+          <NavLink 
             to="/simon-says" 
             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           >
