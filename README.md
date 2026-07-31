@@ -124,7 +124,7 @@ The project enforces strict code quality standards:
 All routes are defined in `src/App.tsx`. The app uses React Router with a base path of `/aine-forge-tester/`:
 
 | Route | Component |
-|-------|-----------|
+|-------|-----------| 
 | `/` | Home page |
 | `/getting-started` | Getting Started guide |
 | `/todo` | Todo List |
