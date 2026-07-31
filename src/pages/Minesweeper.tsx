@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import './Minesweeper.css'
 
 type CellState = 'hidden' | 'revealed' | 'flagged'
@@ -113,6 +113,10 @@ function Minesweeper() {
   const [board, setBoard] = useState<Cell[][]>(createEmptyBoard)
   const [status, setStatus] = useState<GameStatus>('idle')
   const [flagCount, setFlagCount] = useState(0)
+
+  useEffect(() => {
+    resetGame()
+  }, [])
 
   const resetGame = useCallback(() => {
     setBoard(createEmptyBoard())
