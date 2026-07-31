@@ -22,6 +22,7 @@ import DonkeyKong from './pages/DonkeyKong';
 import ConnectFour from './pages/ConnectFour';
 import MountainBikeTrail from './pages/MountainBikeTrail';
 import BikeComponentsFinder from './pages/BikeComponentsFinder';
+import DiceRoller from './pages/DiceRoller';
 import './App.css';
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
             <Route path="/connect-four" element={<ConnectFour />} />
             <Route path="/mountain-bike-trail" element={<MountainBikeTrail />} />
             <Route path="/bike-components-finder" element={<BikeComponentsFinder />} />
+            <Route path="/dice-roller" element={<DiceRoller />} />
           </Routes>
 
           <footer className="footer">
