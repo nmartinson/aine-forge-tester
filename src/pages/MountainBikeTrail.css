@@ -511,3 +511,62 @@
     font-size: 0.95rem;
   }
 }
+
+
+/* Bike Info Banner */
+.bike-info-banner {
+  background: var(--surface-color);
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bike-info-banner p {
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.bike-info-banner strong {
+  color: var(--primary-color);
+}
+
+.change-bike-btn {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+}
+
+.change-bike-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.change-bike-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .bike-info-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .change-bike-btn {
+    width: 100%;
+  }
+}
