@@ -1,3 +1,5 @@
+<!-- A web-based game collection platform featuring classic and modern games built with React and TypeScript. -->
+
 # Aine Forge Tester 🎮
 
 A collection of games and interactive experiences built with React, TypeScript, and Vite.
