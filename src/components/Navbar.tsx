@@ -1,9 +1,35 @@
+import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useTheme } from '../utils/useTheme'
 import './Navbar.css'
 
 function Navbar() {
   const { theme, toggleTheme } = useTheme()
+  const [isGamesOpen, setIsGamesOpen] = useState(false)
+
+  const games = [
+    { path: '/guess-the-number', label: '🎯 Guess the Number' },
+    { path: '/wordle', label: '🎮 Wordle' },
+    { path: '/tictactoe', label: '🎮 Tic Tac Toe' },
+    { path: '/connect-four', label: '🔴 Connect Four' },
+    { path: '/minesweeper', label: '💣 Minesweeper' },
+    { path: '/checkers', label: '♟️ Checkers' },
+    { path: '/memory', label: '🧠 Memory' },
+    { path: '/flip-card', label: '🃏 Flip Card' },
+    { path: '/snake', label: '🐍 Snake' },
+    { path: '/donkey-kong', label: '🦍 Donkey Kong' },
+    { path: '/rpsls', label: '🖖 RPSLS' },
+    { path: '/word-puzzle', label: '📚 Word Puzzle' },
+    { path: '/hangman', label: '💀 Hangman' },
+    { path: '/sudoku', label: '🔢 Sudoku' },
+    { path: '/towers-of-hanoi', label: '🗼 Towers of Hanoi' },
+    { path: '/maze-3d', label: '🧩 Maze 3D' },
+    { path: '/simon-says', label: '🎵 Simon Says' },
+    { path: '/us-state-map', label: '🗺️ US States' },
+    { path: '/todo', label: '📝 Todo' },
+    { path: '/mountain-bike-trail', label: '🚴 Mountain Bike Trail' },
+    { path: '/bike-components-finder', label: '🔧 Bike Components' },
+  ]
 
   return (
     <nav className="navbar">
@@ -19,126 +45,40 @@ function Navbar() {
           >
             🏠 Home
           </NavLink>
-          <NavLink 
-            to="/guess-the-number" 
-            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
-          >
-            🎯 Guess the Number
-          </NavLink>
-          <NavLink 
-            to="/wordle" 
-            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
-          >
-            🎮 Wordle
-          </NavLink>
-          <NavLink 
-            to="/tictactoe" 
-            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
-          >
-            🎮 Tic Tac Toe
-          </NavLink>
-          <NavLink 
-            to="/connect-four" 
-            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
-          >
-            🔴 Connect Four
-          </NavLink>
-          <NavLink 
-            to="/minesweeper" 
-            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
-          >
-            💣 Minesweeper
-          </NavLink>
-          <NavLink 
-            to="/checkers" 
-            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
-          >
-            ♟️ Checkers
-          </NavLink>
-          <NavLink 
-            to="/memory" 
-            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
-          >
-            🧠 Memory
-          </NavLink>
-          <NavLink 
-            to="/flip-card" 
-            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
-          >
-            🃏 Flip Card
-          </NavLink>
-          <NavLink 
-            to="/snake" 
-            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
-          >
-            🐍 Snake
-          </NavLink>
-          <NavLink 
-            to="/donkey-kong" 
-            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
-          >
-            🦍 Donkey Kong
-          </NavLink>
-          <NavLink 
-            to="/rpsls" 
-            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
-          >
-            🖖 RPSLS
-          </NavLink>
-          <NavLink 
-            to="/word-puzzle" 
-            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
-          >
-            📚 Word Puzzle
-          </NavLink>
-          <NavLink 
-            to="/hangman" 
-            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
-          >
-            💀 Hangman
-          </NavLink>
-          <NavLink 
-            to="/sudoku" 
-            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
-          >
-            🔢 Sudoku
-          </NavLink>
-          <NavLink 
-            to="/towers-of-hanoi" 
-            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
-          >
-            🗼 Towers of Hanoi
-          </NavLink>
-          <NavLink 
-            to="/maze-3d" 
-            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
-          >
-            🧩 Maze 3D
-          </NavLink>
-          <NavLink 
-            to="/simon-says" 
-            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
-          >
-            🎵 Simon Says
-          </NavLink>
-          <NavLink 
-            to="/us-state-map" 
-            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
-          >
-            🗺️ US States
-          </NavLink>
-          <NavLink 
-            to="/todo" 
-            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
-          >
-            📝 Todo
-          </NavLink>
+          
+          <div className="games-dropdown">
+            <button 
+              className="games-toggle"
+              onClick={() => setIsGamesOpen(!isGamesOpen)}
+              aria-label="Toggle games menu"
+              aria-expanded={isGamesOpen}
+            >
+              🎮 Games
+              <span className={`dropdown-arrow ${isGamesOpen ? 'open' : ''}`}>▼</span>
+            </button>
+            {isGamesOpen && (
+              <div className="games-menu">
+                {games.map((game) => (
+                  <NavLink
+                    key={game.path}
+                    to={game.path}
+                    className={({ isActive }) => isActive ? 'game-link active' : 'game-link'}
+                    onClick={() => setIsGamesOpen(false)}
+                  >
+                    {game.label}
+                  </NavLink>
+                ))}
+              </div>
+            )}
+          </div>
+
           <NavLink 
             to="/getting-started" 
             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           >
             📚 Getting Started
           </NavLink>
+
           <button 
             className="theme-toggle"
             onClick={toggleTheme}
