@@ -1,3 +1,5 @@
+<!-- A collection of games and interactive experiences built with React, TypeScript, and Vite for testing agentic coding tools. -->
+
 # Aine Forge Tester 🎮
 
 A collection of games and interactive experiences built with React, TypeScript, and Vite.
