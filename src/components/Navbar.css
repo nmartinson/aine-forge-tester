@@ -20,12 +20,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 2rem;
 }
 
 .navbar-brand {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  flex-shrink: 0;
 }
 
 .navbar-logo {
@@ -39,12 +41,15 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  white-space: nowrap;
 }
 
 .navbar-links {
   display: flex;
-  gap: 0.25rem;
+  gap: 0.5rem;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .nav-link {
@@ -60,6 +65,7 @@
   background: transparent;
   border: 1px solid transparent;
   font-size: 0.95rem;
+  white-space: nowrap;
 }
 
 .nav-link:hover {
@@ -81,6 +87,102 @@
   transform: translateY(-1px);
 }
 
+/* Games dropdown */
+.games-dropdown {
+  position: relative;
+}
+
+.games-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.1rem;
+  border-radius: 10px;
+  font-weight: 500;
+  color: var(--text-color);
+  background: transparent;
+  border: 1px solid transparent;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: none;
+  white-space: nowrap;
+}
+
+.games-toggle:hover {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  transform: translateY(-1px);
+}
+
+.games-toggle:focus,
+.games-toggle:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.dropdown-arrow {
+  font-size: 0.7rem;
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.games-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  margin-top: 0.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  min-width: 220px;
+  max-height: 400px;
+  overflow-y: auto;
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.game-link {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+  font-size: 0.95rem;
+}
+
+.game-link:hover {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--primary-color);
+  border-left-color: var(--primary-color);
+  padding-left: 1.5rem;
+}
+
+.game-link.active {
+  background: rgba(59, 130, 246, 0.15);
+  color: var(--primary-color);
+  border-left-color: var(--primary-color);
+  font-weight: 600;
+}
+
 /* Theme toggle button */
 .theme-toggle {
   background: transparent;
@@ -97,6 +199,7 @@
   justify-content: center;
   min-width: 44px;
   min-height: 44px;
+  flex-shrink: 0;
 }
 
 .theme-toggle:hover {
@@ -118,21 +221,78 @@
   }
 
   .navbar-content {
-    flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
+  }
+
+  .navbar-brand {
+    gap: 0.5rem;
+  }
+
+  .navbar-logo {
+    font-size: 1.25rem;
   }
 
   .navbar-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
-  .nav-link {
+  .navbar-links {
+    gap: 0.25rem;
+  }
+
+  .nav-link,
+  .games-toggle {
     padding: 0.55rem 0.9rem;
     font-size: 0.85rem;
   }
 
+  .games-menu {
+    min-width: 200px;
+    max-height: 300px;
+  }
+
+  .game-link {
+    padding: 0.65rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .game-link:hover {
+    padding-left: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .navbar-content {
+    gap: 0.5rem;
+  }
+
+  .navbar-title {
+    display: none;
+  }
+
   .navbar-links {
-    width: 100%;
-    justify-content: center;
+    gap: 0.2rem;
+  }
+
+  .nav-link,
+  .games-toggle {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .games-menu {
+    min-width: 180px;
+    max-height: 250px;
+    right: -50%;
+    transform: translateX(50%);
+  }
+
+  .game-link {
+    padding: 0.6rem 0.9rem;
+    font-size: 0.85rem;
   }
 }
