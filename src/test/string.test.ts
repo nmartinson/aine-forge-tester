@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { capitalize } from '../utils/string'
+import { capitalize, capitalizeFirst } from '../utils/string'
 
 describe('capitalize', () => {
   it('should capitalize a lowercase string', () => {
@@ -28,5 +28,19 @@ describe('capitalize', () => {
 
   it('should handle strings starting with numbers', () => {
     expect(capitalize('123abc')).toBe('123abc')
+  })
+})
+
+describe('capitalizeFirst', () => {
+  it('should capitalize a lowercase string', () => {
+    expect(capitalizeFirst('hello')).toBe('Hello')
+  })
+
+  it('should handle empty strings', () => {
+    expect(capitalizeFirst('')).toBe('')
+  })
+
+  it('should handle single character strings', () => {
+    expect(capitalizeFirst('a')).toBe('A')
   })
 })
