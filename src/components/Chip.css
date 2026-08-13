@@ -1,0 +1,143 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+/* Size variants */
+.chip-small {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+  border-radius: 16px;
+}
+
+.chip-medium {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 20px;
+}
+
+.chip-large {
+  padding: 0.65rem 1.25rem;
+  font-size: 1rem;
+  border-radius: 24px;
+}
+
+/* Color variants */
+.chip-default {
+  background: var(--surface-color);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.chip-default:hover {
+  background: var(--card-bg);
+  border-color: var(--primary-color);
+}
+
+.chip-primary {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.chip-primary:hover {
+  background: rgba(59, 130, 246, 0.25);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+}
+
+.chip-success {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: var(--success-color);
+  color: var(--success-color);
+}
+
+.chip-success:hover {
+  background: rgba(16, 185, 129, 0.25);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+}
+
+.chip-warning {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: var(--warning-color);
+  color: var(--warning-color);
+}
+
+.chip-warning:hover {
+  background: rgba(245, 158, 11, 0.25);
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.2);
+}
+
+.chip-error {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: var(--error-color);
+  color: var(--error-color);
+}
+
+.chip-error:hover {
+  background: rgba(239, 68, 68, 0.25);
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.2);
+}
+
+/* Icon styling */
+.chip-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1em;
+}
+
+/* Label styling */
+.chip-label {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Delete button styling */
+.chip-delete {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.2em;
+  height: 1.2em;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: 1.3em;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+
+.chip-delete:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transform: scale(1.1);
+}
+
+.chip-delete:active {
+  transform: scale(0.95);
+}
+
+.chip-delete:focus,
+.chip-delete:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 1px;
+}
+
+/* Light mode adjustments */
+[data-theme="light"] .chip-delete:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
