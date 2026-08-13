@@ -1,1 +1,1 @@
-T6 failed due to an unexpected assertion error in the integration test suite.
+This file documents a test failure scenario for reference and debugging purposes.
