@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './utils/ThemeContext';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import Home from './pages/Home';
 import GettingStarted from './pages/GettingStarted';
 import TodoList from './pages/TodoList';
@@ -59,9 +60,7 @@ function App() {
             <Route path="/rpsls" element={<RockPaperScissorsLizardSpock />} />
           </Routes>
 
-          <footer className="footer">
-            <p>Built for testing agentic coding tools 🛠️</p>
-          </footer>
+          <Footer />
         </div>
       </Router>
     </ThemeProvider>
