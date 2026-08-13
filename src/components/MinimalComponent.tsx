@@ -1,3 +1,4 @@
+// Renders a simple heading displaying "Minimal Component"
 const MinimalComponent = () => {
   return (
     <div>
