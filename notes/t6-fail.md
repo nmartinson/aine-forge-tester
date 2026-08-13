@@ -1,1 +1,1 @@
-This is a test note file created to demonstrate the workflow.
+This is a test file created to demonstrate the workflow of adding, committing, and pushing changes.
