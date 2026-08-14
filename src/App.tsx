@@ -25,6 +25,10 @@ import MountainBikeTrail from './pages/MountainBikeTrail';
 import BikeComponentsFinder from './pages/BikeComponentsFinder';
 import RockPaperScissorsLizardSpock from './pages/RockPaperScissorsLizardSpock';
 import Game2048 from './pages/Game2048';
+import Battleship from './pages/Battleship';
+import Mastermind from './pages/Mastermind';
+import PacMan from './pages/PacMan';
+import Breakout from './pages/Breakout';
 import './App.css';
 
 function App() {
@@ -59,6 +63,10 @@ function App() {
             <Route path="/bike-components-finder" element={<BikeComponentsFinder />} />
             <Route path="/rpsls" element={<RockPaperScissorsLizardSpock />} />
             <Route path="/2048" element={<Game2048 />} />
+            <Route path="/battleship" element={<Battleship />} />
+            <Route path="/mastermind" element={<Mastermind />} />
+            <Route path="/pacman" element={<PacMan />} />
+            <Route path="/breakout" element={<Breakout />} />
           </Routes>
 
           <footer className="footer">
