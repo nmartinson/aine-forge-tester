@@ -8,6 +8,7 @@ A collection of games and interactive experiences built with React, TypeScript, 
 - **Connect Four** — Drop pieces and get four in a row
 - **Minesweeper** — Find the mines without clicking them
 - **Donkey Kong** — Classic arcade platformer
+- **2048** — Combine tiles to reach 2048
 - **Mountain Bike Trail** — Navigate the terrain
 - **Bike Components Finder** — Find the right parts
 - **Rock Paper Scissors Lizard Spock** — Expand your strategy
