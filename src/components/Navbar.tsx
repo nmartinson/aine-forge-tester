@@ -27,6 +27,8 @@ function Navbar() {
     { path: '/simon-says', label: '🎵 Simon Says' },
     { path: '/us-state-map', label: '🗺️ US States' },
     { path: '/2048', label: '🎮 2048' },
+    { path: '/game1', label: '🎲 Game1 (Dice & Color)' },
+    { path: '/game2', label: '⚡ Game2 (Reaction & Words)' },
     { path: '/todo', label: '📝 Todo' },
     { path: '/mountain-bike-trail', label: '🚴 Mountain Bike Trail' },
     { path: '/bike-components-finder', label: '🔧 Bike Components' },
