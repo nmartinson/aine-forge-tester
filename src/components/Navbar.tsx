@@ -40,15 +40,15 @@ function Navbar() {
           <span className="navbar-title">Aine Forge Tester</span>
         </div>
         <div className="navbar-links">
-          <NavLink 
-            to="/" 
-            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
           >
             🏠 Home
           </NavLink>
-          
+
           <div className="games-dropdown">
-            <button 
+            <button
               className="games-toggle"
               onClick={() => setIsGamesOpen(!isGamesOpen)}
               aria-label="Toggle games menu"
@@ -63,7 +63,7 @@ function Navbar() {
                   <NavLink
                     key={game.path}
                     to={game.path}
-                    className={({ isActive }) => isActive ? 'game-link active' : 'game-link'}
+                    className={({ isActive }) => (isActive ? 'game-link active' : 'game-link')}
                     onClick={() => setIsGamesOpen(false)}
                   >
                     {game.label}
@@ -73,14 +73,14 @@ function Navbar() {
             )}
           </div>
 
-          <NavLink 
-            to="/getting-started" 
-            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          <NavLink
+            to="/getting-started"
+            className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
           >
             📚 Getting Started
           </NavLink>
 
-          <button 
+          <button
             className="theme-toggle"
             onClick={toggleTheme}
             aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
