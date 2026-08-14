@@ -24,6 +24,7 @@ import Minesweeper from './pages/Minesweeper';
 import MountainBikeTrail from './pages/MountainBikeTrail';
 import BikeComponentsFinder from './pages/BikeComponentsFinder';
 import RockPaperScissorsLizardSpock from './pages/RockPaperScissorsLizardSpock';
+import Game2048 from './pages/Game2048';
 import './App.css';
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
             <Route path="/mountain-bike-trail" element={<MountainBikeTrail />} />
             <Route path="/bike-components-finder" element={<BikeComponentsFinder />} />
             <Route path="/rpsls" element={<RockPaperScissorsLizardSpock />} />
+            <Route path="/2048" element={<Game2048 />} />
           </Routes>
 
           <footer className="footer">
